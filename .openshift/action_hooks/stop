@@ -1,0 +1,11 @@
+#!/bin/bash
+# The logic to stop your application should be put in this script.
+. ${OPENSHIFT_DATA_DIR}diy_env.sh
+# Stop Node.js
+#kill `ps -ef | grep node | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+kill `ps -ef | grep supervisor | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+
+# Stop ElasticSearch
+kill `ps -ef | grep elasticsearch | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+
+exit 0

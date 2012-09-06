@@ -1,0 +1,12 @@
+{
+  "nodejs": {
+    "version": "v0.8.8",
+    "removeOld": true
+  },
+  "elasticsearch": {
+    "version": "0.19.9",
+    "port": 19200,
+    "ES_HEAP_SIZE": "256m",
+    "removeOld": false
+  }
+}
