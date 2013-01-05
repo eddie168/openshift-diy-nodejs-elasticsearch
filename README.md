@@ -31,20 +31,20 @@ Check the end of the message for Node.js and ElastisSearch version:
     remote: Starting application...
     remote: Node Version:
     remote: { http_parser: '1.0',
-    remote:   node: '0.8.8',
-    remote:   v8: '3.11.10.19',
+    remote:   node: '0.8.16',
+    remote:   v8: '3.11.10.25',
     remote:   ares: '1.7.5-DEV',
     remote:   uv: '0.8',
     remote:   zlib: '1.2.3',
     remote:   openssl: '1.0.0f' }
-    remote: ElasticSearch Version: 0.19.9, JVM: 23.0-b21i
-    remote: nohup supervisor server.js >/var/lib/stickshift/xxxxxxxxxxxxxxxxxx/yourapp/logs/server.log 2>&1 &
+    remote: ElasticSearch Version: 0.20.2, JVM: 23.2-b09
+    remote: nohup supervisor server.js >/var/lib/stickshift/xxxxxxxxxxxxxxxxxx/diy-0.1/logs/server.log 2>&1 &
     remote: Done
 
-In this case it is node `v0.8.8` and elasticsearch `0.19.9`
+In this case it is node `v0.8.16` and elasticsearch `0.20.2`
 
-You can find node.js app's log at `$OPENSHIFT_LOG_DIR/server.log`. Subsequent `push` will rename the log file with a time stamp before overwritten. The same goes to ElasticSearch log file and can be found at `$OPENSHIFT_LOG_DIR/elasticsearch.log`. 
-You should be able to see these log files with `rhc app tail -a yourapp`.
+You can find node.js app's log at `$OPENSHIFT_DIY_LOG_DIR/server.log`. Subsequent `push` will rename the log file with a time stamp before overwritten. The same goes to ElasticSearch log file and can be found at `$OPENSHIFT_DIY_LOG_DIR/elasticsearch.log`. 
+You should be able to see these log files with `rhc tail -a yourapp`.
 
 Now open your openshift app in browser and you should see the standard openshift sample page. Enjoy!!
 
