@@ -8,22 +8,22 @@ cd ${OPENSHIFT_REPO_DIR}
 # Extract node.js script from package.json
 APP_FILE=`node -e 'var package=require("./package.json");console.log(package.scripts.start.split(/ /)[1]);'`
 # Backup server.log if exist
-LOG_FILE=${OPENSHIFT_LOG_DIR}server.log
+LOG_FILE=${OPENSHIFT_DIY_LOG_DIR}server.log
 if [ -s $LOG_FILE ]; then
   # Get the modify time of the log file
   MODIFY=`stat -c "%Y" $LOG_FILE`
   # Convert to time stamp
   STAMP=`date -d @$MODIFY "+%Y%m%d-%H%M%S"`
-  mv -f $LOG_FILE ${LOG_FILE}.${STAMP}.log
+  mv -f $LOG_FILE ${LOG_FILE}.${STAMP}
 fi
 # Backup elasticsearch.log if exist
-ES_LOG_FILE=${OPENSHIFT_LOG_DIR}elasticsearch.log
+ES_LOG_FILE=${OPENSHIFT_DIY_LOG_DIR}elasticsearch.log
 if [ -s $ES_LOG_FILE ]; then
   # Get the modify time of the log file
   MODIFY=`stat -c "%Y" $ES_LOG_FILE`
   # Convert to time stamp
   STAMP=`date -d @$MODIFY "+%Y%m%d-%H%M%S"`
-  mv -f $ES_LOG_FILE ${ES_LOG_FILE}.${STAMP}.log
+  mv -f $ES_LOG_FILE ${ES_LOG_FILE}.${STAMP}
 fi
 
 echo "Node Version:"
@@ -36,4 +36,4 @@ ${OPENSHIFT_DATA_DIR}elasticsearch-${ES_VERSION}/bin/elasticsearch
 
 # Use supervisor to keep node app running after crash
 echo "nohup supervisor $APP_FILE >$LOG_FILE 2>&1 &"
-nohup supervisor -w $APP_FILE $APP_FILE >$LOG_FILE 2>&1 &
+nohup supervisor -w . $APP_FILE >$LOG_FILE 2>&1 &

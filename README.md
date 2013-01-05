@@ -55,14 +55,14 @@ Edit `config_diy.json`
 
     {
       "nodejs": {
-        "version": "v0.8.8",
-        "removeOld": false
+        "version": "v0.8.16",
+        "removeOld": true
       },
       "elasticsearch": {
-        "version": "0.19.9",
+        "version": "0.20.2",
         "port": 19200,
         "ES_HEAP_SIZE": "256m",
-        "removeOld": false
+        "removeOld": true
       }
     }
 

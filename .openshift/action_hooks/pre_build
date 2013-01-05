@@ -67,12 +67,12 @@ if [ ! -e ${OPENSHIFT_DATA_DIR}elasticsearch-${ES_VERSION}/bin/elasticsearch ]; 
   fi
   cd ${OPENSHIFT_DATA_DIR}
   tarball=''
-  if [ "`curl -Is "https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz" | grep '200 OK\|302 Found'`" != '' ]; then
-    tarball="https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz"
+  if [ "`curl -Is "http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz" | grep '200 OK\|302 Found'`" != '' ]; then
+    tarball="http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz"
   else
-    tarball="https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-0.19.9.tar.gz"
-    ES_VERSION="0.19.9"
-    echo "#### ${ES_VERSION} not exist. Change elasticsearch.verion changed to *0.19.9*"
+    tarball="http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.2.tar.gz"
+    ES_VERSION="0.20.2"
+    echo "#### ${ES_VERSION} not exist. Change elasticsearch.verion changed to *0.20.2*"
   fi
   # Download the tarball
   if [ ! -d elasticsearch-${ES_VERSION} ]; then
@@ -86,7 +86,7 @@ fi
 # Create elasticsearch.yml
 cp -f ${OPENSHIFT_DATA_DIR}elasticsearch-${ES_VERSION}/config/elasticsearch.yml.orig ${OPENSHIFT_DATA_DIR}elasticsearch-${ES_VERSION}/config/elasticsearch.yml
 # Add settings
-(echo "path.logs: \${OPENSHIFT_LOG_DIR}"
+(echo "path.logs: \${OPENSHIFT_DIY_LOG_DIR}"
 echo "network.host: \${OPENSHIFT_INTERNAL_IP}"
 echo "transport.tcp.port: 3306"
 echo "http.port: ${ES_PORT}"
