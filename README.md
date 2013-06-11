@@ -82,7 +82,7 @@ Use ElasticSearch in Node.js
 
 An environment variable `ES_PORT` is defined. Simply make a http connection to ElasticSearch server with `ES_PORT`. For example:
 
-    var esServer = "http://"+process.env.OPENSHIFT_INTERNAL_IP+":"+process.env.ES_PORT+"/";
+    var esServer = "http://"+process.env.OPENSHIFT_DIY_IP+":"+process.env.ES_PORT+"/";
     http.get(esServer, function (res) {
       res.setEncoding('utf8');
       res.on('data', function (data) {

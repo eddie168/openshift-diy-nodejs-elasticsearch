@@ -87,7 +87,7 @@ fi
 cp -f ${OPENSHIFT_DATA_DIR}elasticsearch-${ES_VERSION}/config/elasticsearch.yml.orig ${OPENSHIFT_DATA_DIR}elasticsearch-${ES_VERSION}/config/elasticsearch.yml
 # Add settings
 (echo "path.logs: \${OPENSHIFT_DIY_LOG_DIR}"
-echo "network.host: \${OPENSHIFT_INTERNAL_IP}"
+echo "network.host: \${OPENSHIFT_DIY_IP}"
 echo "transport.tcp.port: 3306"
 echo "http.port: ${ES_PORT}"
 echo "discovery.zen.ping.multicast.enabled: false"
