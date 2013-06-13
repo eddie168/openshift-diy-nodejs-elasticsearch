@@ -1,10 +1,10 @@
 {
   "nodejs": {
-    "version": "v0.8.16",
+    "version": "v0.10.10",
     "removeOld": true
   },
   "elasticsearch": {
-    "version": "0.20.2",
+    "version": "0.90.1",
     "port": 19200,
     "ES_HEAP_SIZE": "256m",
     "removeOld": true
